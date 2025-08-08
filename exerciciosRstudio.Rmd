@@ -1,7 +1,11 @@
 ---
 title: "Exercício R"
-output: html_notebook
+output: github_document
 ---
+```{r}
+knitr::opts_chunk$set(echo= TRUE, results = 'markup', fig.path="figures/")
+```
+
 1.Crie duas variáveis Ana e Paulo e atribua a elas valores de suas idades, sendo respectivamente 8 e 12 anos. As variáveis devem ser do tipo inteiro. Imprima no console "A menina é mais velha" ou "O menino é mais velho" como resultado de um teste lógico.
 ```{r}
 Ana = 8L
@@ -26,8 +30,6 @@ for(i in vetor){
   }
 }
   
-  
-
 ```
 4-Women é um dataframe existente do R.Imprima as 10 últimas linhas:
 ```{r}
