@@ -1,5 +1,5 @@
 ---
-title:"Exercício R"
+title: "Exercício R"
 output: html_notebook
 ---
 1.Crie duas variáveis Ana e Paulo e atribua a elas valores de suas idades, sendo respectivamente 8 e 12 anos. As variáveis devem ser do tipo inteiro. Imprima no console "A menina é mais velha" ou "O menino é mais velho" como resultado de um teste lógico.
@@ -18,7 +18,7 @@ class(BOD)
 ```
 3-Crie um vetor que armazene números de 1 a 10 e posteriormente imprima valores pares:
 ```{r}
-vetor<-c(1,2,3,4,5,6,7,8,9,10)
+vetor<- c(1,2,3,4,5,6,7,8,9,10)
 
 for(i in vetor){
   if(vetor[i]%%2 == 0){
@@ -56,3 +56,7 @@ colnames(CO2)
 ```
 
 7-Use a função plot do R para produzir um gráfico dos atributos Sepal.width e Petal.length do conjunto de dados Iris.O gráfico deve imprimir as linhas de 50 até 100 apenas.
+```{r}
+novairis = iris[50:100,c(2,3)]
+plot(novairis)
+```
