@@ -1,0 +1,63 @@
+---
+title: "Limpeza e Tratamento com R"
+output: github_document
+---
+```{r}
+knitr::opts_chunk$set(echo= TRUE, results = 'markup', fig.path="figures/")
+```
+
+```{r}
+#importa dados, string vazio como NA, string como fatores
+dados=read.csv("Churn.csv" , sep = ";"  ,na.strings = "" , stringsAsFactors = T)
+summary(dados)#Fornece o valor mínimo e o valor máximo,quartis
+```
+```{r}
+head(dados) #Cabeçalho dos dados
+```
+```{r}
+#Nomeação de colunas
+colnames(dados) = c("Id" , "Score" ,"Estado" , "Gênero" , "Idade" , "Patrimônio" , "Saldo", "Produtos" , "TemCartãoDeCrédito","Ativo" , "Salário" , "Saiu")
+head(dados)
+```
+```{r}
+#Gráfico com a frequência de Estado
+counts = table(dados$Estado)
+barplot(counts,main="Estado" , xlab = "Estados")
+```
+```{r}
+#Gráfico de frequência do gênero
+counts=table(dados$Gênero)
+barplot(counts,main="Gênero" , xlab = "Estados")
+```
+```{r}
+#Explorar as colunas
+summary(dados$Score)
+#Fornece os valores mínimo e máximo, junto com a mediana, e os quartis
+```
+```{r}
+boxplot(dados$Score)
+#Mostra a distribuição dos dados.
+```
+
+```{r}
+hist(dados$Score)
+#Mostra a distribuição
+```
+
+```{r}
+#Agora referente a coluna idade
+summary(dados$Idade)
+hist(dados$Idade)
+#Será representado uma anomalia, não há idade negativa
+```
+```{r}
+#Coluna do Saldo
+hist(dados$Saldo)
+#Aqui, é possível concluir que uma frequência de 400 pessoas possui um saldo igual a 0
+```
+```{r}
+#Coluna do Salario
+summary(dados$Salário)
+boxplot()
+```
+
