@@ -1,0 +1,49 @@
+---
+title:"Projeto de Limpeza de dados"
+output:github_document
+---
+
+```{r}
+knitr::opts_chunk$set(echo= TRUE, results = 'markup', fig.path="figures/")
+```
+
+```{r}
+#Objetivo: Tratar a base de dados tempo.csv de modo que a aparência deve ser sol,nublado ou chuva, umidade de 0 a 100, jogar sim/não , temperatura de -130 ate 130 positivo, tratar valores não existentes, caso existam.
+```
+```{r}
+dados=read.csv("tempo.csv" , sep = ";" , na.strings = "" , stringsAsFactors = T , fileEncoding ="UTF-8")
+#na.strings = "" significa que quando encontrar um campo vazio ele serÃ¡ tratado como NA(nÃ£o disponÃ­vel)
+head(dados)
+colnames(dados)
+print(dados)
+Clima = unique(dados$Aparencia)
+```
+
+`
+```{r}
+#Aqui, filtra a Umidade de 0 a 100:
+x = dados[dados$Umidade >0 & dados$Umidade <= 100, ]
+print(x)
+```
+```{r}
+#Filtro no Clima, deve ser Sol, Nublado ou Chuva
+AparenciaRemover = c("menos")
+AparenciaFiltrada = Clima[!(Clima %in% AparenciaRemover)]
+print(AparenciaFiltrada)
+
+```
+```{r}
+#Filtro na temperatura:
+Y = dados[dados$Temperatura > -130 & dados$Temperatura <= 130 , ]
+print(Y)
+```
+```{r}
+#Quantidade de "nÃ£o" e "sim" presente na coluna jogar
+x = unique(dados$Jogar)
+print(x)
+qtd=table(dados$Jogar)
+print(qtd)
+
+```
+
+
